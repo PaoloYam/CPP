@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pyammoun <pyammoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pyammoun <paolo.yammouni@42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:32:03 by pyammoun          #+#    #+#             */
-/*   Updated: 2023/06/23 16:59:20 by pyammoun         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:32:55 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <fstream>
 #include <map>
+#include <ctime>
 
 
 class BitcoinExchange {
@@ -26,13 +27,16 @@ class BitcoinExchange {
         
         BitcoinExchange(std::string input);
 
-        void    readcsv(void);
-        void    execute(std::string input);
+        void        readcsv(void);
+        void        execute(std::string input);
+        void        usevalue(std::string key, std::string value);
+        int         verifyData(std::string key);
+        std::string findCorrectDate(std::string key);
+        int         verifyValue(float value);
 
     private :
 
         std::map<std::string, std::string>  _data;
-        bool                                _error;
 
         BitcoinExchange(void);
         BitcoinExchange(BitcoinExchange const & cpy);
